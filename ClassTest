@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jul 16 16:32:10 2014
+
+@author: alvin
+"""
+
+class human:
+    def __init__(self,age=0,weight=0):
+        self.age=age
+        self.weight=weight
+        
+        
+        
+        
+
+joe=human(26,175)
+
+print joe.age
