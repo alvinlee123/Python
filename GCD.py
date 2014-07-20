@@ -23,7 +23,7 @@ class fraction():
     def __str__(self):
         return str(self.num)+"/"+str(self.dem)
         
-    def reduce(self):
+    def simpl(self):
         common=gcd(self.num,self.dem)
         self.num=self.num//common
         self.dem=self.dem//common
