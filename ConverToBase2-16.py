@@ -4,6 +4,7 @@ Created on Tue Jul 22 17:08:39 2014
 
 @author: alvin
 """
+from StackClass import Stack
 
 def converttobinary(n,base):
     key='0123456789abcdef'
@@ -14,4 +15,16 @@ def converttobinary(n,base):
         
 
 
-print converttobinary(4,2)
+
+def convertbase2(n):
+    
+    a=Stack()
+    binstring=""
+    while n>0:
+        a.push(n%2)
+        n=n//2
+    while not a.isEmpty():
+        binstring+=str(a.pop())
+    return binstring
+    
+print convertbase2(10)
