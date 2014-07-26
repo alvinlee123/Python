@@ -26,15 +26,15 @@ def manhat(rating1,rating2):
 storage={}
 for people in users:
     storage[people]=0
-    if people!="Angelica":        
+    if people!="Chan":        
         for i,k in users[people].iteritems():
-            if i in users["Angelica"]:
-                storage[people]+=abs(k-users["Angelica"][i])
+            if i in users["Chan"]:
+                storage[people]+=abs(k-users["Chan"][i])
 
 mindistance=99999
 closest="" 
 for i,k in storage.iteritems():
-    if k <mindistance and i!="Angelica":
+    if k <mindistance and i!="Chan":
         mindistance=k
         closest=i
         
@@ -42,6 +42,12 @@ for i,k in storage.iteritems():
 
 print closest,mindistance
                         
-                    
-for artists in users[closest]:
+RecList=[]
+
+
+for i in users[closest]:
+    if i not in users["Chan"]:
+        RecList.append(i)
+
+print RecList
     
