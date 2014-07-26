@@ -17,37 +17,36 @@ users = {"Angelica": {"Blues Traveler": 3.5, "Broken Bells": 2.0, "Norah Jones":
          "Veronica": {"Blues Traveler": 3.0, "Norah Jones": 5.0, "Phoenix": 4.0, "Slightly Stoopid": 2.5, "The Strokes": 3.0}
         }
 
-def manhat(rating1,rating2):
-    print "hi"
+def manhat(user1,allusers):
+    storage={}
+    users=allusers
+    for people in users:
+        storage[people]=0
+        if people!=user1:        
+            for i,k in users[people].iteritems():
+                if i in users[user1]:
+                    storage[people]+=abs(k-users[user1][i])
 
- 
 
 
-storage={}
-for people in users:
-    storage[people]=0
-    if people!="Chan":        
-        for i,k in users[people].iteritems():
-            if i in users["Chan"]:
-                storage[people]+=abs(k-users["Chan"][i])
 
-mindistance=99999
-closest="" 
-for i,k in storage.iteritems():
-    if k <mindistance and i!="Chan":
-        mindistance=k
-        closest=i
+
+    mindistance=99999
+    closest="" 
+    for i,k in storage.iteritems():
+        if k <mindistance and i!=user1:
+            mindistance=k
+            closest=i
         
-        
-
-print closest,mindistance
                         
-RecList=[]
+    RecList=[]
 
 
-for i in users[closest]:
-    if i not in users["Chan"]:
-        RecList.append(i)
+    for i in users[closest]:
+        if i not in users[user1]:
+            RecList.append(i)
 
-print RecList
+    return "The Recommendation for %s is the following " %(user1), RecList
+    
+print manhat("Chan",users)
     
