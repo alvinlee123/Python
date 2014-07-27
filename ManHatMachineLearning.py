@@ -42,11 +42,12 @@ def manhat(user1,allusers):
     RecList=[]
 
 
-    for i in users[closest]:
+    for i,k in users[closest].iteritems():
         if i not in users[user1]:
-            RecList.append(i)
+            RecList.append((i,k))
+           
 
     return "The Recommendation for %s is the following " %(user1), RecList
     
-print manhat("Chan",users)
+print manhat("Hailey",users)
     
