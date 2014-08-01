@@ -10,19 +10,20 @@ infile=open("companylist.csv")
 from bs4 import BeautifulSoup as bs
 import requests
 import time
-
+import re
 
 for i in infile:
     symbol=i.split('\r\n')[0].lower()
-    time.sleep(.2)
-    supa='http://finance.yahoo.com/q?s='+symbol
+
+    time.sleep(3)
+    supa='https://www.google.com/finance?q='+symbol
 
     url=requests.get(supa).text
     
-    time.sleep(.2)
-    soup=bs(url,features='html')
-    classy='yfs_l84_'+symbol
-    price=soup.find('span',{'id':classy}).text
+    time.sleep(3)
+    soup=bs(url)
     
 
-    print "%s is %s today"%(symbol, price)
+    price= soup.find('span',{'class':'pr'})
+    
+    print "%s price today is %s"%(symbol,price.text)
